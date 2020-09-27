@@ -99,7 +99,7 @@ exports.processImage = async (event) => {
 exports.saveResult = async (event) => {
   const pubsubData = event.data
   const jsonStr = Buffer.from(pubsubData, "base64").toString()
-  const { text, filename, lang } = JSON.parse(jsonStr)
+  const { text, filename } = JSON.parse(jsonStr)
 
   if (!text) {
     throw new Error(
@@ -109,11 +109,6 @@ exports.saveResult = async (event) => {
   if (!filename) {
     throw new Error(
       'Filename not provided. Make sure you have a "filename" property in your request'
-    )
-  }
-  if (!lang) {
-    throw new Error(
-      'Language not provided. Make sure you have a "lang" property in your request'
     )
   }
 
