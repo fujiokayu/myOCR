@@ -40,8 +40,6 @@ const detectText = async (bucketName, filename) => {
   const [annotation] = textDetections.textAnnotations
   const text = annotation ? annotation.description : ""
   console.log(`Extracted text from image:`, text)
-
-  return Promise.all(tasks)
 }
 // [END functions_ocr_detect]
 
